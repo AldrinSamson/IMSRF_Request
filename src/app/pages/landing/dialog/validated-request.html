@@ -1,0 +1,28 @@
+<div class="modal demo-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bold">I have code</h5>
+        <button type="button" class="close" (click) = "activeModal.close()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="validatedRequestForm">
+          <div class="form-group">
+            <label>Contact Number</label>
+            <input type="text" class="form-control" formControlName="contactNumber" >
+          </div>
+          <div class="form-group">
+            <label>Validation Code</label>
+            <input type="text" class="form-control" formControlName="validationCode" >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)='submit()' [disabled]="!validatedRequestForm.valid">Submit</button>
+        <button type="button" class="btn btn-outline-dark" (click) = "activeModal.close()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

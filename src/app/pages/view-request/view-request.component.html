@@ -1,0 +1,78 @@
+<div class = "content-wrapper" >
+  <div class="d-flex align-items-center auth px-0">
+    <div class="row w-100 mx-0">
+      <div class="col-lg-4 mx-auto">
+        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+          <div class="brand-logo">
+            <img src="../../../assets/images/redbank/redbank_logo.svg" alt="logo">
+          </div>
+
+          <div *ngIf="status === 'active'">
+              <p class="text-justify font-weight-bold">Requester Name: Johnny</p>
+              <p class="text-justify font-weight-bold">Patient Name: Bandoy John </p>
+              <p class="text-justify font-weight-bold">Blood Type: A+</p>
+              <p class="text-justify font-weight-bold">Units: 5</p>
+              <p class="text-justify font-weight-bold">Hospital: Chinese General</p>
+              <p class="text-justify font-weight-bold">Diagnosis: Diabetes</p>
+              <p class="text-justify font-weight-bold">Status: Delivered</p>
+              <label>Diagnosis Photo :</label>
+              <img
+              src="../../../assets/images/samples/300x300/11.jpg"
+              alt="patientDiagnosisPhoto"
+              class="preview-image"
+              />
+              <button class="btn btn-block btn-dark btn-lg font-weight-medium auth-form-btn" (click)='submitUpdateRequest()'>Go Back</button>
+          </div>
+
+          <div *ngIf="status === 'denied'">
+            <p>Your Request has been Denied</p>
+            <div class="mt-3">
+              <button class="btn btn-block btn-dark btn-lg font-weight-medium auth-form-btn" (click)='submitUpdateRequest()'>Go Back</button>
+            </div>
+          </div>
+
+          <div *ngIf="status === 'validated'">
+            <h4>Fill in the patient's details</h4>
+            <form [formGroup]="patientDetailsForm" class="pt-3">
+              <div class="form-group">
+                <label>Patient Name</label>
+                <input type="text" class="form-control form-control-lg" formControlName="patientName">
+              </div>
+              <div class="form-group">
+                <label>Hospital Name</label>
+                <input type="text" class="form-control form-control-lg" formControlName="hospitalName">
+              </div>
+              <div class="form-group">
+                <label>Diagnosis</label>
+                <input type="text" class="form-control form-control-lg" formControlName="patientDiagnosis">
+              </div>
+              <div class="form-group">
+                <label>Blood Type</label>
+                <input type="text" class="form-control form-control-lg" formControlName="patientBloodType">
+              </div>
+              <div class="form-group">
+                <label>Blood Component</label>
+                <input type="text" class="form-control form-control-lg" formControlName="patientBloodComponent">
+              </div>
+              <div class="form-group">
+                <label>Units</label>
+                <input type="text" class="form-control form-control-lg" formControlName="patientBloodUnits">
+              </div>
+              <div class="form-group">
+                <label>Diagnosis Photo</label>
+                <input type="text" class="form-control form-control-lg" formControlName="patientDiagnosisPhoto">
+              </div>
+              <div class="mt-3">
+                <button class="btn btn-block btn-dark btn-lg font-weight-medium auth-form-btn" (click)='submitUpdateRequest()'>Submit</button>
+              </div>
+              <div class="my-2 d-flex justify-content-between align-items-center">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-toasts></app-toasts>
+
+</div>

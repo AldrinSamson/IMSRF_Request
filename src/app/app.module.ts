@@ -20,7 +20,9 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
 
 import { ToasterComponent } from './shared/toaster/toaster.component';
 import { ControlMessagesComponent } from './shared/control-messages/control-messages.component';
-import { LandingComponent } from './pages/landing/landing.component';
+import { LandingComponent, NewRequestDialogComponent, ViewRequestDialogComponent } from './pages/landing/landing.component';
+import { NewRequestComponent } from './pages/new-request/new-request.component';
+import { ViewRequestComponent } from './pages/view-request/view-request.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,11 @@ import { LandingComponent } from './pages/landing/landing.component';
     ContentAnimateDirective,
     ToasterComponent,
     ControlMessagesComponent,
-    LandingComponent
+    LandingComponent,
+    NewRequestComponent,
+    ViewRequestComponent,
+    NewRequestDialogComponent,
+    ViewRequestDialogComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseKeys),
