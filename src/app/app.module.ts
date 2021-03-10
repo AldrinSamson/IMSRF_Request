@@ -8,21 +8,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AlertService, AuthGuardService, AuthService, ValidationService } from '@shared';
 import { firebaseKeys } from './firebase.config';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 
 import { ToasterComponent } from './shared/toaster/toaster.component';
 import { ControlMessagesComponent } from './shared/control-messages/control-messages.component';
-import { LandingComponent, NewRequestDialogComponent, ViewRequestDialogComponent } from './pages/landing/landing.component';
-import { NewRequestComponent } from './pages/new-request/new-request.component';
-import { ViewRequestComponent } from './pages/view-request/view-request.component';
+import { LandingComponent , NewRequesterComponent} from './pages/landing/landing.component';
+import { MainComponent, NewRequestComponent, ViewRequestComponent, ViewDispatchComponent, FeedbackComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,12 @@ import { ViewRequestComponent } from './pages/view-request/view-request.componen
     LandingComponent,
     NewRequestComponent,
     ViewRequestComponent,
-    NewRequestDialogComponent,
-    ViewRequestDialogComponent
+    MainComponent,
+    NewRequesterComponent,
+    NavbarComponent,
+    FooterComponent,
+    ViewDispatchComponent,
+    FeedbackComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseKeys),
@@ -47,6 +52,7 @@ import { ViewRequestComponent } from './pages/view-request/view-request.componen
     ReactiveFormsModule,
     AngularFireAuthModule,
     MatFormFieldModule,
+    MaterialFileInputModule
 
   ],
   providers: [

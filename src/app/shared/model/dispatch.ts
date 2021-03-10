@@ -1,34 +1,38 @@
-export class RequestDispatch {
-  static modelName = 'requestBlood'
-  static collectionName = 'requestBlood';
-  static prefix = 'RQT';
+export class Dispatch {
+  static modelName = 'dispatch'
+  static collectionName = 'dispatch';
+  static prefix = 'DSP';
 
-  requestID: string; // Auto Gen
-
+  // order details
+  dispatchID: string; // Auto Generated
+  requestID: string;
   requesterID: string;
-  contactNumber: string;
-
-  // requests details
-  validationCode: string;
-
+  partnerID: string;
+  institutionName: string;
+  requesterName: string;
   patientName: string;
-  hospitalName: string;
-  patientDiagnosis: string;
-  patientBloodType: string;
-  patientBloodComponent: string;
-  patientBloodUnits: number;
-  patientDiagnosisPhotoUrl: string;
+  bloodType: string;
 
-  dateRequested: Date;
-  status: string; // Unvalidated, Requested, Order Created
+  // selected items [{batchID , quantity}]
+  orderItems: JSON;
+  status: string; // Active, Delivered?, Claimed
 
-  isValidated: boolean;
-  isOrdered: boolean;
+  claimCode: string;
+  dateOrderCreated: Date;
+  dateClaimed: Date;
+  feedback: string;
+
+  // Meta Data
+  isCompleted: boolean;
   isArchived: boolean;
-  num: number;
+  isFeedback: boolean;
 
   dateCreated: Date;
   dateLastModified: Date;
   createdBy: string;
   lastModifiedBy: string;
+
+  // [DSP , RQT , PTR , RQR ]
+  // experimental for use in advanced searches using array-contains-any
+  searchTags: Array<any>;
 }

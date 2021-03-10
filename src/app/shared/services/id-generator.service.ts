@@ -13,14 +13,15 @@ export class IdGeneratorService {
 
   async generateID(model , option?) {
 
-    if( model.modelName === 'partner' ||  model.modelName === 'requestBlood' && option === undefined) {  // Singled Numbered
+    if( model.modelName === 'partner' ||  model.modelName === 'request' ||  model.modelName === 'requester'
+    && option === undefined) {  // Singled Numbered
       let lastNum: any;
       let newNum: any;
       let newID: any;
       const query = await this.db.collection(model.collectionName).ref.orderBy('num', 'desc').limit(1).get();
       const snapshot = query.docs[0];
       if (snapshot !== undefined){
-        lastNum = snapshot.data();
+        lastNum = snapshot.data()['num'];
         newNum = lastNum+1;
         newID = model.prefix + '-' + newNum;
         return {newID,newNum};
@@ -36,7 +37,7 @@ export class IdGeneratorService {
       const newID = model.prefix + '-' + idNum + '-' + dateCode
       return {newID , dateCode}
 
-    } else if ( model.modelName === 'dispatchBlood') { // Double with other ID
+    } else if ( model.modelName === 'dispatch') { // Double with other ID
 
       const idNum = option.requestID.substring(4);
       const idNum2 = option.partnerID.substring(4);
@@ -62,6 +63,3 @@ export class IdGeneratorService {
     return mm+dd+yy
   }
 }
-
-
-

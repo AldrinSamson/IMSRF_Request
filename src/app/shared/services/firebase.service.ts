@@ -89,7 +89,7 @@ export class FirebaseService {
     const userDetails = JSON.parse(sessionStorage.getItem('session-user-details'));
     this.db.collection('audit').add({
       date: new Date(),
-      level: userDetails.position,
+      level: 'Requester',
       name: userDetails.fullName,
       uid: userDetails.uid,
       type: service,

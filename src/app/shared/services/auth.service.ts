@@ -28,7 +28,7 @@ export class AuthService {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password).then( res => {
         this.userUid = res.user.uid;
         // tslint:disable-next-line: no-shadowed-variable
-        this.db.collection('user', ref => ref.where('uid', '==', res.user.uid)).valueChanges({idField: 'id'}).forEach( result => {
+        this.db.collection('requester', ref => ref.where('uid', '==', res.user.uid).where('isActive', '==', true)).valueChanges({idField: 'id'}).forEach( result => {
           this.userDetails = result;
           if (result.length !== 0) {
             sessionStorage.setItem('session-alive', 'true');
@@ -36,15 +36,10 @@ export class AuthService {
             sessionStorage.setItem('session-user-details', JSON.stringify(this.userDetails[0]));
             this.fbs.audit('Authentication' , 'Logged In');
             this.alert.showToaster('Logged In!');
-            if (this.userDetails[0].position === 'Partner') {
-              this.router.navigate(['/partner']);
-            }else {
-              this.router.navigate(['/main']);
-            }
+            this.router.navigate(['/main']);
           } else {
-            this.alert.showToaster('Error');
+            this.alert.showToaster('Invalid Account type');
           }
-
       });
       });
     } catch (err) {
@@ -71,53 +66,7 @@ export class AuthService {
   }
 
   public isAuthenticated(): string {
-    this.userPosition = JSON.parse(sessionStorage.getItem('session-user-details'));
-    if (this.userPosition.position === 'Admin' || this.userPosition.position === 'Staff') {
-      return sessionStorage.getItem('session-alive');
-    }
-    return 'false'
-  }
-
-  public isPartnerAuthenticated(): string {
-    this.userPosition = JSON.parse(sessionStorage.getItem('session-user-details'));
-    if (this.userPosition.position === 'Partner') {
-      return sessionStorage.getItem('session-alive');
-    }
-
-    return 'false'
-  }
-
-  public isAdmin() {
-    this.userPosition = JSON.parse(sessionStorage.getItem('session-user-details'));
-    if (!this.isAuthenticated()) {
-      return false;
-    } else if (this.userPosition.position === 'Admin') {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public isStaff() {
-    this.userPosition = JSON.parse(sessionStorage.getItem('session-user-details'));
-    if (!this.isAuthenticated()) {
-      return false;
-    } else if (this.userPosition.position === 'Staff') {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public isPartner() {
-    this.userPosition = JSON.parse(sessionStorage.getItem('session-user-details'));
-    if (!this.isAuthenticated() || !this.isPartnerAuthenticated()) {
-      return false;
-    } else if (this.userPosition.position === 'Partner') {
-      return true;
-    } else {
-      return false;
-    }
+    return sessionStorage.getItem('session-alive');
   }
 
   public userName() {
@@ -125,8 +74,8 @@ export class AuthService {
     return userName.fullName
   }
 
-  public partnerID() {
-    const userName = JSON.parse(sessionStorage.getItem('session-user-details'));
-    return userName.partnerID
+  public requesterID() {
+    const requesterID = JSON.parse(sessionStorage.getItem('session-user-details'));
+    return requesterID.requesterID
   }
 }

@@ -3,6 +3,7 @@ export class Requester {
   static collectionName = 'requester';
   static prefix = 'RQR';
 
+  uid: string;
   requesterID: string;
   contactNumber: string; // only changeable in internal
 
@@ -16,8 +17,17 @@ export class Requester {
   sex: string;
   requesterPhotoUrl: string;
 
+  isActive: boolean;
+  num: number;
+
   dateCreated: Date;
   dateLastModified: Date;
   createdBy: string;
   lastModifiedBy: string;
 }
+
+export class Sexes {
+  static sexes = ['Male', 'Female']
+}
+
+

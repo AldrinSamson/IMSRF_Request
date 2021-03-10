@@ -10,11 +10,9 @@ export class Error404Component implements OnInit {
   homeRoute
 
   constructor(private readonly authService: AuthService) {
-    if(this.authService.isPartner()) {
-      this.homeRoute = '/partner'
-    }else{
+
       this.homeRoute = '/main'
-    }
+
   }
 
   ngOnInit() {
