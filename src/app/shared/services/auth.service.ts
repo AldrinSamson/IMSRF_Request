@@ -34,7 +34,7 @@ export class AuthService {
             sessionStorage.setItem('session-alive', 'true');
             sessionStorage.setItem('session-user-uid', this.userUid);
             sessionStorage.setItem('session-user-details', JSON.stringify(this.userDetails[0]));
-            this.fbs.audit('Authentication' , 'Logged In');
+            this.fbs.audit('Authentication' , 'Logged In', email);
             this.alert.showToaster('Logged In!');
             this.router.navigate(['/main']);
           } else {
@@ -49,7 +49,8 @@ export class AuthService {
   }
 
   public logout(): void {
-    this.fbs.audit('Authentication' , 'Logged Out');
+    const userName = JSON.parse(sessionStorage.getItem('session-user-details'));
+    this.fbs.audit('Authentication' , 'Logged Out', userName.email);
     sessionStorage.removeItem('session-alive');
     sessionStorage.removeItem('session-user-uid');
     sessionStorage.removeItem('session-user-details');

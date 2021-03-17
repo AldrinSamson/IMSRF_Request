@@ -69,10 +69,12 @@ export class DispatchService {
       dateLastModified: new Date(),
       createdBy: this.authService.userName(),
       lastModifiedBy: this.authService.userName()
-    })}).catch(error => {
+    })
+      this.firebase.audit('Request' ,this.authService.userName() + 'Created a Request', val.newID);
+    }).catch(error => {
       throw new Error('Error: Adding document:' + error);
     }).then( () => {
-      this.alertService.showToaster(values.requestID+' Request Added' , { classname: 'bg-success text-light', delay: 10000 })
+      this.alertService.showToaster('Request Added' , { classname: 'bg-success text-light', delay: 10000 })
     })
 
   }
@@ -91,6 +93,7 @@ export class DispatchService {
     }).catch(error => {
       throw new Error('Error: Updating document:' + error);
     }).then( () => {
+      this.firebase.audit('Request' , values.fullName + 'Modified his/her Request', values.requestID);
       this.alertService.showToaster(values.requestID+' Modified' , { classname: 'bg-success text-light', delay: 10000 })
     });
   }
@@ -105,7 +108,8 @@ export class DispatchService {
     }).catch(error => {
       throw new Error('Error: Updating document:' + error);
     }).then( () => {
-      this.alertService.showToaster(values.requestID+' Feedback Received, Thank you !' , { classname: 'bg-success text-light', delay: 10000 })
+      this.firebase.audit('Request' , values.fullName + 'Submitted his/her Feedback', values.dispatchID);
+      this.alertService.showToaster(values.dispatchID+' Feedback Received, Thank you !' , { classname: 'bg-success text-light', delay: 10000 })
     });
   }
 
