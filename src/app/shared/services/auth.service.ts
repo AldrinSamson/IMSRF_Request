@@ -24,13 +24,13 @@ export class AuthService {
 
   async login(email: string, password: string) {
     try {
-      this.alert.showToaster('Autheticating ...');
+      this.alert.showToaster('Authenticating ...');
       const result = await this.afAuth.signInWithEmailAndPassword(email, password).then( res => {
         this.userUid = res.user.uid;
         // tslint:disable-next-line: no-shadowed-variable
-        this.db.collection('requester', ref => ref.where('uid', '==', res.user.uid).where('isActive', '==', true)).valueChanges({idField: 'id'}).forEach( result => {
-          this.userDetails = result;
-          if (result.length !== 0) {
+        this.db.collection('requester', ref => ref.where('uid', '==', res.user.uid).where('isActive', '==', true)).valueChanges({idField: 'id'}).forEach( result2 => {
+          this.userDetails = result2;
+          if (result2.length !== 0) {
             sessionStorage.setItem('session-alive', 'true');
             sessionStorage.setItem('session-user-uid', this.userUid);
             sessionStorage.setItem('session-user-details', JSON.stringify(this.userDetails[0]));
