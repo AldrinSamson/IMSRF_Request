@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage'
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,8 +23,10 @@ import { ContentAnimateDirective } from './shared/directives/content-animate.dir
 
 import { ToasterComponent } from './shared/toaster/toaster.component';
 import { ControlMessagesComponent } from './shared/control-messages/control-messages.component';
-import { LandingComponent , NewRequesterComponent} from './pages/landing/landing.component';
+import { LandingComponent , NewRequesterComponent, PasswordResetDialogComponent} from './pages/landing/landing.component';
 import { MainComponent, NewRequestComponent, ViewRequestComponent, ViewDispatchComponent, FeedbackComponent } from './pages/main/main.component';
+import { PolicyComponent } from './pages/policy/policy.component';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   declarations: [
@@ -38,9 +41,12 @@ import { MainComponent, NewRequestComponent, ViewRequestComponent, ViewDispatchC
     MainComponent,
     NewRequesterComponent,
     NavbarComponent,
-    FooterComponent,
+    FooterComponent,    
     ViewDispatchComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    PasswordResetDialogComponent,
+    PolicyComponent,
+    TermsAndConditionsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseKeys),
@@ -52,7 +58,8 @@ import { MainComponent, NewRequestComponent, ViewRequestComponent, ViewDispatchC
     ReactiveFormsModule,
     AngularFireAuthModule,
     MatFormFieldModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    HttpClientModule
 
   ],
   providers: [

@@ -1,0 +1,49 @@
+body {
+    background-image: url("../../../assets/images/background/bg-1.jpeg") !important;
+  }
+  .content-wrapper {
+    background-image: url("../../../assets/images/background/landing_bg.svg") !important;
+    background-color: #d8d8d8 ;
+    height: 100vh;
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+  }
+  
+  @font-face
+  {font-family:"Cambria Math";
+  panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+  {font-family:Roboto;
+  panose-1:0 0 0 0 0 0 0 0 0 0;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+  {margin:0in;
+  line-height:115%;
+  font-size:11.0pt;
+  font-family:"Arial",sans-serif;}
+h3
+  {margin-top:16.0pt;
+  margin-right:0in;
+  margin-bottom:4.0pt;
+  margin-left:0in;
+  line-height:115%;
+  page-break-after:avoid;
+  font-size:14.0pt;
+  font-family:"Arial",sans-serif;
+  color:#434343;
+  font-weight:normal;}
+.MsoChpDefault
+  {font-family:"Arial",sans-serif;}
+.MsoPapDefault
+  {line-height:115%;}
+@page WordSection1
+  {size:8.5in 11.0in;
+  margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+  {page:WordSection1;}
+/* List Definitions */
+ol
+  {margin-bottom:0in;}
+ul
+  {margin-bottom:0in;}

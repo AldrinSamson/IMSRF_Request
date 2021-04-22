@@ -44,7 +44,7 @@ export class NewRequesterComponent implements OnInit, OnDestroy{
       mailingAddress: ['', Validators.required],
       email: ['', Validators.required],
       contactNumber: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required,ValidationService.passwordValidator]],
       birthday: [this.dateObject],
       sex: ['', Validators.required],
       requesterPhoto: ['', [ this.image.bind(this)]],
@@ -121,6 +121,33 @@ export class NewRequesterComponent implements OnInit, OnDestroy{
   }
 
 }
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector : 'forgot-password',
+  templateUrl : './dialog/forgot-password.html',
+  styleUrls: ['./landing.component.scss'],
+})
+
+export class PasswordResetDialogComponent implements OnInit{
+
+  @Input() value;
+  email = '';
+
+  constructor(
+    public readonly activeModal: NgbActiveModal,
+    public authService: AuthService,
+  ) {}
+
+  ngOnInit() {
+    this.email = this.value
+  }
+
+  sendResetEmail() {
+    this.authService.sendUserPasswordResetEmailForgot(this.email);
+    this.activeModal.close();
+  }
+}
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -136,7 +163,7 @@ export class LandingComponent {
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, ValidationService.emailValidator]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required,ValidationService.passwordValidator]]
     });
   }
 
@@ -149,6 +176,11 @@ export class LandingComponent {
 
   openNewRequester() {
     this.modalService.open(NewRequesterComponent,{centered: true, scrollable: true, backdrop: 'static'});
+  }
+
+  openForgotPassword() {
+    const modalRef = this.modalService.open(PasswordResetDialogComponent,{centered: true, scrollable: true, backdrop: 'static'});
+    modalRef.componentInstance.value = this.loginForm.value.email;
   }
 
   keyDownFunction(event) {

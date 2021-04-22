@@ -6,6 +6,7 @@ import { Request, Dispatch} from '../model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AlertService } from './alert.service';
 import { disableDebugTools } from '@angular/platform-browser';
+import { UtilService } from './util.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class DispatchService {
     public db: AngularFirestore,
     public authService: AuthService,
     public genService: IdGeneratorService,
-    public alertService: AlertService) { }
+    public alertService: AlertService,
+    public utilService: UtilService) { }
 
 
   getAllRequestofRequester() {
@@ -44,6 +46,7 @@ export class DispatchService {
   }
 
   createRequest(values) {
+    let replacements = {}
     this.genService.generateID(Request).then(val => {
       this.db.collection<Request>(Request.collectionName).add({
 
@@ -71,9 +74,16 @@ export class DispatchService {
       lastModifiedBy: this.authService.userName()
     })
       this.firebase.audit('Request' ,this.authService.userName() + 'Created a Request', val.newID);
+      replacements = {
+        requesterName :  this.authService.userName(),
+        date : new Date(),
+        requestID : val.newID
+      }
     }).catch(error => {
       throw new Error('Error: Adding document:' + error);
     }).then( () => {
+      this.utilService.sendBroadcastToPositionEmail('New Request Added!', 'newRequest' , replacements,  'System Admin');
+      this.utilService.sendBroadcastToPositionEmail('New Request Added!', 'newRequest' , replacements,  'Dispatch & Request Manager');
       this.alertService.showToaster('Request Added' , { classname: 'bg-success text-light', delay: 10000 })
     })
 
