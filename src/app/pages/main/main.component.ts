@@ -1,5 +1,5 @@
 import { Router, NavigationEnd, NavigationStart, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
-import { Component, OnInit, Input,  OnDestroy, ViewChild} from '@angular/core';
+import { Component, OnInit, Input,  OnDestroy,  ViewChild, ElementRef} from '@angular/core';
 import { DispatchService, AlertService, RequesterService, StorageService, UtilService, Sexes, AuthService, Requester } from '@shared';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Observable, Subscription, Subject, merge, EMPTY } from 'rxjs';
@@ -8,6 +8,8 @@ import { NgbActiveModal, NgbModal, NgbTypeahead } from '@ng-bootstrap/ng-bootstr
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import { MEDIA_STORAGE_PATH_IMG , DEFAULT_PROFILE_PIC } from '../../storage.config';
 import { FixedScaleAxis } from 'chartist';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -165,6 +167,7 @@ export class ViewDispatchComponent implements OnInit{
   p;
   editForm: any;
   @Input() value;
+  @ViewChild('orderData') htmlData:ElementRef;
   inventory$: Observable<any>;
   loadInventory = true;
   orderQuantity;
@@ -197,6 +200,27 @@ export class ViewDispatchComponent implements OnInit{
     }, (reason) => {
       // on dismiss
     });
+  }
+
+  public openPDF():void {
+    let DATA = document.getElementById('orderData');
+      
+    html2canvas(DATA).then(canvas => {
+        
+        let fileWidth = 208;
+        let fileHeight = canvas.height * fileWidth / canvas.width;
+        
+        const FILEURI = canvas.toDataURL('image/png')
+        let PDF = new jsPDF({
+          orientation: "landscape",
+          unit: "mm",
+          format: 'a4',
+        });
+        let position = 0;
+        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight)
+        
+        PDF.save(this.value.dispatchID+'.pdf');
+    });     
   }
 }
 
@@ -243,6 +267,10 @@ export class MainComponent implements OnInit {
   showNavbar: boolean = true;
   showFooter: boolean = true;
   isLoading: boolean;
+  p1;
+  p2;
+  searchtext1;
+  searchtext2;
 
   request$: Observable<any>;
   dispatch$: Observable<any>;

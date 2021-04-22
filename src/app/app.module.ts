@@ -8,6 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -59,7 +61,9 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
     AngularFireAuthModule,
     MatFormFieldModule,
     MaterialFileInputModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
 
   ],
   providers: [
