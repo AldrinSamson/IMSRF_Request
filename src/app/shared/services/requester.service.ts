@@ -49,11 +49,13 @@ export class RequesterService {
           });
           this.firebase.audit('Requester' , values.fullName + ' Signed up', val.newID);
           this.alertService.showToaster('User Create Success'  , { classname: 'bg-success text-light', delay: 10000 });
+          
           }).catch(error => {
             throw new Error('Error: Creating document:' + error);
-          }).then( () => {
-            this.alertService.showToaster('Sign up complete! Sign in to continue' , { classname: 'bg-success text-light', delay: 10000 })
-          });
+          })
+        }).then( () => {
+          this.alertService.showToaster('Sign up complete!, please click on the verification link sent to your email address to before signing in' , { classname: 'bg-success text-light', delay: 10000 })
+          alert("Your account has been created, please click on the verification link sent to your email address to before signing in");
         })
         .catch((_error) => {
           this.alertService.showToaster('User Create Failed' + _error.message  , { classname: 'bg-warning text-light', delay: 10000 });

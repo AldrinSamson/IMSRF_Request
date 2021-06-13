@@ -26,19 +26,24 @@ export class AuthService {
     this.alert.showToaster('Authenticating ...');
     await this.afAuth.signInWithEmailAndPassword(email, password).then( res => {
       this.userUid = res.user.uid;
-      this.db.collection('requester', ref => ref.where('uid', '==', this.userUid).where('isActive', '==', true)).get().subscribe( result2 => {
-
-        if (result2.docs.length !== 0) {
-          sessionStorage.setItem('session-alive', 'true');
-          sessionStorage.setItem('session-user-uid', this.userUid);
-          sessionStorage.setItem('session-user-details', JSON.stringify(result2.docs[0].data()));
-          this.fbs.audit('Authentication' , 'Logged In', email);
-          this.alert.showToaster('Logged In!');
-          this.router.navigate(['/main']);
-        } else {
-          this.alert.showToaster('Invalid Account type');
-        }
-      });
+      if (res.user.emailVerified === true){
+        this.db.collection('requester', ref => ref.where('uid', '==', this.userUid).where('isActive', '==', true)).get().subscribe( result2 => {
+        
+          if (result2.docs.length !== 0) {
+            sessionStorage.setItem('session-alive', 'true');
+            sessionStorage.setItem('session-user-uid', this.userUid);
+            sessionStorage.setItem('session-user-details', JSON.stringify(result2.docs[0].data()));
+            this.fbs.audit('Authentication' , 'Logged In', email);
+            this.alert.showToaster('Logged In!');
+            this.router.navigate(['/main']);
+          } else {
+            this.alert.showToaster('Invalid Account type');
+          }
+        });
+      }else{
+        this.alert.showToaster('Please verify your email first by clicking on the link sent to your email');
+      }
+      
     }).catch((error) => {
       console.log(error);
       this.alert.showToaster('Email or Password is wrong');

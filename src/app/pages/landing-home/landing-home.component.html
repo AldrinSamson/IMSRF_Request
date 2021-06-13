@@ -1,0 +1,177 @@
+<!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <a routerLink="/landing"><img src="../../../assets/images/redbank/redbank_logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a routerLink="/landing">Home</a></li>
+          <li><a routerLink="/landing" fragment = "about">About</a></li>
+          <li><a routerLink="/faq">FAQ</a></li>
+          <li><a routerLink="/login">Log in / Sign up</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <ngb-carousel #carousel 
+      interval=0 
+      wrap="true"  
+      (slide)=onSlide($event)
+      [showNavigationArrows]="true" 
+      [showNavigationIndicators]="true"
+      interval="3500"
+      [keyboard]="true"
+      [pauseOnHover]="false"
+      [activeId]="'firstSlide'">
+      <ng-template ngbSlide id="firstSlide">
+        <div class="hero-wrap "style="background-image: url('assets/images/landing/Carousel-FIRST.png');" >
+          <div class="overlay"></div>
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animate__animated animate__fadeInDown" >Welcome to <span style=" text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">The Red Bank Foundation</span></h2>
+              <p class="animate__animated animate__fadeInUp" style="font-weight: bold;">Our goal is to deliver and supply blood as much as possible to all people in need with no cost.</p>
+              <a routerLink="/login" class="btn-get-started animate__animated animate__fadeInUp">Request Blood</a>
+            </div>
+          </div>
+         </div>
+      </ng-template>
+      <ng-template ngbSlide id="secondSlide">
+        <div class="hero-wrap "style="background-image: url('assets/images/landing/Carousel-SECOND.png');" >
+          <div class="overlay"></div>
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span style=" text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">The Red Bank Foundation</span></h2>
+              <p class="animate__animated animate__fadeInUp" style="font-weight: bold;" >Our goal is to deliver and supply blood as much as possible to all people in need with no cost.</p>
+              <a routerLink="/login" class="btn-get-started animate__animated animate__fadeInUp">Request Blood</a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide id="thirdSlide">
+        <div class="hero-wrap "style="background-image: url('assets/images/landing/Carousel-THIRD.png');" >
+          <div class="overlay"></div>
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animate__animated animate__fadeInDown">Welcome to <span style=" text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;">The Red Bank Foundation</span></h2>
+              <p class="animate__animated animate__fadeInUp" style="font-weight: bold;" >Our goal is to deliver and supply blood as much as possible to all people in need with no cost.</p>
+              <a routerLink="/login" class="btn-get-started animate__animated animate__fadeInUp">Request Blood</a>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      </ngb-carousel>
+      
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Featured Section ======= -->
+    <section id="featured" class="featured">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="icon-box">
+              <i class="mdi mdi-newspaper"></i><br>
+              <h3><a href="">Request for Blood</a></h3>
+              <p>In need of blood? You may request blood with the help of The Red Bank Foundation!</p><p> Log in or sign up to request.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="mdi mdi-calendar"></i><br>
+              <h3><a href="">Join our Bloodletting Events</a></h3>
+              <p>Join our bloodletting events collaborated with our different Partner Medical Institutions to donate blood.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="mdi mdi-water"></i><br>
+              <h3><a href="">Donate Blood</a></h3>
+              <p>Donate blood, be someone's miracle and save a life.</p> <p>Join our bloodletting events to donate!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="../../../assets/images/landing/ABOUT US.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h2 style="color: #ff5757;">ABOUT US</h2>
+            <p>
+              The Red Bank Foundation was established and has been active since 2019. It is located in Quezon City, NCR, Philippines.
+            </p>
+            <p>
+              The organization’s goal is to deliver and supply blood, as much as possible to all the people in need with no cost. The organization also envisions to be the number one blood supplier in the Philippines.
+            </p>
+            <p>
+              The Red Bank Foundation offers services such as hosting events for bloodletting programs and dispatching blood requests to the individual Blood Requesters.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="mdi mdi-chevron-double-right"></i> <a routerLink="/landing">Home</a></li>
+              <li><i class="mdi mdi-chevron-double-right"></i> <a routerLink="/landing" fragment = "about">About us</a></li>
+              <li><i class="mdi mdi-chevron-double-right"></i> <a routerLink="/faq">FAQ</a></li>
+              <li><i class="mdi mdi-chevron-double-right"></i> <a routerLink="/terms-conditions">Terms of service</a></li>
+              <li><i class="mdi mdi-chevron-double-right"></i> <a routerLink="/privacy-policies">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              The Red Bank Foundation<br>
+              Quezon City, NCR<br>
+              Philippines<br><br>
+              <strong>Email:</strong> jst@theredbank.org<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+         Copyright &copy; 2021<strong><span>The Red Bank Foundation</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+
+

@@ -4,7 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "site":"imsrf-request-dev",
+    "site": "theredbank",
     "public": "public",
     "ignore": [
       "firebase.json",

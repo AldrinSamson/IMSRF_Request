@@ -29,6 +29,8 @@ import { LandingComponent , NewRequesterComponent, PasswordResetDialogComponent}
 import { MainComponent, NewRequestComponent, ViewRequestComponent, ViewDispatchComponent, FeedbackComponent } from './pages/main/main.component';
 import { PolicyComponent } from './pages/policy/policy.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
+import { LandingHomeComponent } from './pages/landing-home/landing-home.component';
+import { LandingFaqComponent } from './pages/landing-faq/landing-faq.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
     FeedbackComponent,
     PasswordResetDialogComponent,
     PolicyComponent,
-    TermsAndConditionsComponent
+    TermsAndConditionsComponent,
+    LandingHomeComponent,
+    LandingFaqComponent
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseKeys),

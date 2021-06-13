@@ -10,3 +10,38 @@ body {
   background-position: center center;
 }
 
+ /*--------------------------------------------------------------
+  # Breadcrumbs
+  --------------------------------------------------------------*/
+  .breadcrumbs {
+    padding: 20px 0 20px 0;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 40px;
+  }
+  
+  .breadcrumbs h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #545454;
+  }
+  
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0 0 5px 0;
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .breadcrumbs ol li + li {
+    padding-left: 10px;
+  }
+  
+  .breadcrumbs ol li + li::before {
+    display: inline-block;
+    padding-right: 10px;
+    color: #6e6e6e;
+    content: "/";
+  }
