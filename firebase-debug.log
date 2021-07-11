@@ -1,0 +1,105 @@
+[debug] [2021-06-13T07:43:49.126Z] ----------------------------------------------------------------------
+[debug] [2021-06-13T07:43:49.127Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\AldrinSamson\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-06-13T07:43:49.128Z] CLI Version:   9.8.0
+[debug] [2021-06-13T07:43:49.128Z] Platform:      win32
+[debug] [2021-06-13T07:43:49.128Z] Node Version:  v15.12.0
+[debug] [2021-06-13T07:43:49.129Z] Time:          Sun Jun 13 2021 15:43:49 GMT+0800 (Singapore Standard Time)
+[debug] [2021-06-13T07:43:49.129Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-13T07:43:49.131Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-06-13T07:43:49.151Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-13T07:43:49.151Z] > authorizing via signed-in user
+[debug] [2021-06-13T07:43:49.151Z] [iam] checking project imsrf-dev for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2021-06-13T07:43:49.153Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-06-13T07:43:49.153Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-13T07:43:49.295Z] <<< HTTP RESPONSE 200 {"date":"Sun, 13 Jun 2021 07:43:49 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:49.300Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/imsrf-dev:testIamPermissions  
+ {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2021-06-13T07:43:49.817Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-06-13T07:43:49.818Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-06-13T07:43:50.232Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=819","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:50.233Z] > refreshing access token with scopes: []
+[debug] [2021-06-13T07:43:50.233Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-13T07:43:50.377Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sun, 13 Jun 2021 07:43:50 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:50.384Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/imsrf-dev [none]
+[debug] [2021-06-13T07:43:50.801Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/imsrf-dev 200
+[debug] [2021-06-13T07:43:50.801Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/imsrf-dev {"projectId":"imsrf-dev","projectNumber":"118196391031","displayName":"IMSRF-DEV","name":"projects/imsrf-dev","resources":{"hostingSite":"imsrf-dev","realtimeDatabaseInstance":"imsrf-dev","storageBucket":"imsrf-dev.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'imsrf-dev'...
+[info] 
+[info] i  deploying storage, firestore, hosting 
+[debug] [2021-06-13T07:43:50.803Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-06-13T07:43:50.803Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-06-13T07:43:50.944Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Sun, 13 Jun 2021 07:43:50 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:50.951Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/imsrf-dev  
+ 
+[debug] [2021-06-13T07:43:51.438Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firebase.storage: checking storage.rules for compilation errors... 
+[debug] [2021-06-13T07:43:51.439Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/imsrf-dev:test  
+ {"source":{"files":[{"name":"storage.rules","content":"rules_version = '2';\r\nservice firebase.storage {\r\n  match /b/{bucket}/o {\r\n    match /{allPaths=**} {\r\n      allow read, write: if request.auth!=null;\r\n    }\r\n  }\r\n}\r\n"}]}}
+[debug] [2021-06-13T07:43:52.518Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:52 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  firebase.storage: rules file storage.rules compiled successfully 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2021-06-13T07:43:52.525Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/imsrf-dev:test  
+ {"source":{"files":[{"name":"firestore.rules","content":"rules_version = '2';\r\nservice cloud.firestore {\r\n  match /databases/{database}/documents {\r\n    match /{document=**} {\r\n       allow read, write: if request.auth!=null;\r\n    }\r\n  }\r\n}\r\n"}]}}
+[debug] [2021-06-13T07:43:52.947Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:52 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2021-06-13T07:43:52.949Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/theredbank/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-06-13T07:43:54.320Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:54 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:54.321Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/imsrf-dev/releases?pageSize=10&pageToken=  
+ 
+[debug] [2021-06-13T07:43:55.401Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:55.402Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/imsrf-dev/rulesets/f6ba9c93-7e92-4f33-aa6e-8dca51f77438  
+ 
+[debug] [2021-06-13T07:43:56.470Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  storage: latest version of storage.rules already up to date, skipping upload... 
+[debug] [2021-06-13T07:43:56.474Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/imsrf-dev/releases?pageSize=10&pageToken=  
+ 
+[debug] [2021-06-13T07:43:56.474Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/imsrf-dev/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2021-06-13T07:43:56.932Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:56.933Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/imsrf-dev/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2021-06-13T07:43:57.228Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firestore: The following indexes are defined in your project but are not present in your firestore indexes file:
+	(inventory) -- (isArchived,ASCENDING) (quantity,DESCENDING) 
+	(requester) -- (isActive,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (partnerID,ASCENDING) (dateExpiry,DESCENDING) 
+	(audit) -- (type,ASCENDING) (date,DESCENDING) 
+	(dispatch) -- (isArchived,ASCENDING) (status,ASCENDING) (dateCreated,DESCENDING) 
+	(request) -- (isApproved,ASCENDING) (dateCreated,DESCENDING) 
+	(dispatch) -- (searchTags,CONTAINS) (isFeedback,ASCENDING) (dateCreated,DESCENDING) 
+	(requester) -- (isActive,ASCENDING) (requesterID,ASCENDING) 
+	(dispatch) -- (isArchived,ASCENDING) (requesterID,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (bloodType,ASCENDING) (isArchived,ASCENDING) (isEmpty,ASCENDING) (isExpired,ASCENDING) (partnerID,ASCENDING) (dateExpiry,DESCENDING) 
+	(inventory) -- (isArchived,ASCENDING) (isExpired,ASCENDING) (quantity,DESCENDING) 
+	(inventory) -- (isArchived,ASCENDING) (dateExtraction,DESCENDING) 
+	(inventory) -- (isArchived,ASCENDING) (isExpired,ASCENDING) (dateExpiry,DESCENDING) 
+	(inventory) -- (dateExtraction,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (isExpired,ASCENDING) (partnerID,ASCENDING) (dateCreated,DESCENDING) 
+	(audit) -- (searchTags,CONTAINS) (type,ASCENDING) (dateCreated,DESCENDING) 
+	(requestPartner) -- (partnerID,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (isArchived,ASCENDING) (isExpired,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (isArchived,ASCENDING) (dateExpiry,DESCENDING) 
+	(dispatch) -- (isArchived,ASCENDING) (status,ASCENDING) (dateCreated,ASCENDING) 
+	(request) -- (isArchived,ASCENDING) (status,ASCENDING) (dateCreated,DESCENDING) 
+	(dispatch) -- (isFeedback,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (bloodType,ASCENDING) (isArchived,ASCENDING) (isEmpty,ASCENDING) (isExpired,ASCENDING) (partnerID,ASCENDING) (dateCreated,DESCENDING) 
+	(dispatch) -- (partnerID,ASCENDING) (status,ASCENDING) (dateCreated,DESCENDING) 
+	(dispatch) -- (status,ASCENDING) (dateCreated,DESCENDING) 
+	(dispatch) -- (status,ASCENDING) (dateCreated,ASCENDING) 
+	(inventory) -- (isArchived,ASCENDING) (isExpired,ASCENDING) (dateExtraction,DESCENDING) 
+	(request) -- (isApproved,ASCENDING) (status,ASCENDING) (dateCreated,DESCENDING) 
+	(request) -- (isArchived,ASCENDING) (requesterID,ASCENDING) (dateCreated,DESCENDING) 
+	(inventory) -- (isExpired,ASCENDING) (partnerID,ASCENDING) (dateExpiry,DESCENDING) 
+	(request) -- (isArchived,ASCENDING) (dateCreated,DESCENDING)  
+[debug] [2021-06-13T07:43:57.485Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-06-13T07:43:57.485Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/imsrf-dev/rulesets/f3625e2b-a1e1-4750-b951-5f222df0da56  
+ 
+[debug] [2021-06-13T07:43:58.527Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 13 Jun 2021 07:43:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
